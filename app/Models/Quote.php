@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Quote extends Model
+{
+    use HasFactory;
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function services(){
+        return $this->hasMany(QuoteService::class);
+    }
+    public function acceptedQuotes(){
+        return $this->belongsTo(AcceptedQuote::class);
+    }
+    public function car(){
+        return $this->belongsTo(Car::class);
+    }
+    public function quotesWorkshop(){
+        return $this->hasMany(QuotesWorkshop::class);
+    }
+
+}
+
